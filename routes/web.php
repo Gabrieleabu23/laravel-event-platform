@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('pages/event', [EventController::class, 'index'])
     ->name('event.index');
 
+// ROTTA PER IL METODO CREATE/STORE
+Route::get('/events/create' , [EventController :: class, 'create'])  
+    -> name('event.create');
+Route::post('/events/create' , [EventController :: class, 'store'])  
+    -> name('event.store');
+
 
 
 Route::get('/pages/tags', [TagController::class, 'index'])->name('tags.index');
