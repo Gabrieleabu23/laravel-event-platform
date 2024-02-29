@@ -25,15 +25,22 @@ Route::get('/events/create' , [EventController :: class, 'create'])
 Route::post('/events/create' , [EventController :: class, 'store'])  
     -> name('event.store');
 
-
+Route::get('/pages/event/edit/{id}', [EventController::class, 'edit'])->name('pages.edit');
+Route::put('/pages/event/{id}', [EventController::class, 'update'])
+    ->name('pages.update');
 
 Route::get('/pages/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::middleware('auth')->group(function () {
+//     Route::put('/pages/edit/{id}', 'TagController@update')->name('pages.update');
+// });
+
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -44,4 +51,4 @@ Route::middleware('auth')->group(function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
