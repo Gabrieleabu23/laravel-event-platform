@@ -32,7 +32,7 @@ return new class extends Migration
             $table->dropForeign(['event_id']);
             $table -> dropColumn(['event_id']);
 
-            $table -> dropForeign(['event_id']);
+            $table -> dropForeign(['tag_id']);
             $table -> dropColumn(['tag_id']);
         });
     }
