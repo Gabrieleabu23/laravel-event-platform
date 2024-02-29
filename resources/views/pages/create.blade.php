@@ -15,6 +15,9 @@
     <label for="description">Description</label>
     <input type="text" name="description" id="description">
     <br>
+    <label for="event_date">Data Evento</label>
+    <input type="date" name="event_date" id="event_date">
+    <br>
     <label for="tag_id">Tag</label>
     <select name="tag_id" id="tag_id">
         @foreach ($tags as $tag)

@@ -34,15 +34,14 @@ class EventController extends Controller
 
         $data = $request ->all();
         
-        $tag = Tag :: find($data['tag_id']);
 
         $event = new Event();
         $event -> name = $data['name'];
         $event -> description = $data['description'];
-
+        $event -> event_date = $data['event_date'];
+        $event -> save();
         $event -> tags() -> attach($data['tag_id']);
 
-        $event -> save();
 
         
 

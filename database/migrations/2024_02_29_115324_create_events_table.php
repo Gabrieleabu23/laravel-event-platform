@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('name', 64) -> unique();
             $table->string('description', 255);
-            $table->date('event_date');
+            $table->date('event_date')->nullable();
 
 
             $table->timestamps();
