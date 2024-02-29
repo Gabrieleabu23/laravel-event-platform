@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/pages/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/', function () {
     return view('welcome');
 });
