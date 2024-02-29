@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Tag;
 
 
 
@@ -26,7 +27,7 @@ class EventController extends Controller
         $tags = Tag::all(); // Recupera tutti i tag disponibili
         
 
-        return view('pages.event' , compact ('events', 'tags'));
+        return view('pages.create' , compact ('events', 'tags'));
     }
 
     public function store(Request $request) {
@@ -39,7 +40,7 @@ class EventController extends Controller
         $event -> name = $data['name'];
         $event -> description = $data['description'];
 
-        $event -> tag() -> associate($tag);
+        $event -> tags() -> attach($data['tag_id']);
 
         $event -> save();
 

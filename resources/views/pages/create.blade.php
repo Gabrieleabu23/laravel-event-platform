@@ -1,7 +1,7 @@
-@extends('layouts.main-layout')
-@section('head')
+@extends('layouts.app')
 
-@endsection
+
+
 @section('content')
     <h1>Create New Event</h1>
     <form action="{{ route('event.store') }}" method="POST">
@@ -18,7 +18,7 @@
     <label for="tag_id">Tag</label>
     <select name="tag_id" id="tag_id">
         @foreach ($tags as $tag)
-            <option value="{{ $type -> id }}">
+            <option value="{{ $tag -> id }}">
                 {{ $tag -> name }}
             </option>
         @endforeach
