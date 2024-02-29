@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
     {
 
         $this -> call([
-            TagSeeder::class,
             EventTableSeeder :: class,
+            TagSeeder::class,
+            UserTableSeeder::class
         ]);
 
     }
