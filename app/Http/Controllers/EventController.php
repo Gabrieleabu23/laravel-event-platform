@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Tag;
@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     public function index()
     {
-
+        
         $events = Event::all();
 
         return view('pages.event', compact('events'));
@@ -39,12 +39,12 @@ class EventController extends Controller
 
     public function create()
     {
-
+        $user_id=Auth::id();
         $events = Event::all();
         $tags = Tag::all(); // Recupera tutti i tag disponibili
 
 
-        return view('pages.create', compact('events', 'tags'));
+        return view('pages.create', compact('events', 'tags','user_id'));
     }
 
     public function store(Request $request)

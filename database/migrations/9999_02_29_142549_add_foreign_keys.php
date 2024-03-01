@@ -18,6 +18,9 @@ return new class extends Migration
             $table -> foreignId('tag_id') -> constrained();
             $table -> foreignId('event_id') -> constrained();
         });
+        Schema::table('events', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+        });
     }
 
     /**
@@ -34,6 +37,10 @@ return new class extends Migration
 
             $table -> dropForeign(['tag_id']);
             $table -> dropColumn(['tag_id']);
+        });
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
     }
 };
