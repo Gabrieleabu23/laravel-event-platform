@@ -4,9 +4,9 @@
 
 @section('content')
     @auth
-        <h2>utente sfigato: {{$user_id}}</h2>
+        
         <h1>Create New Event</h1>
-        <form action="{{ route('event.store') }}" method="POST">
+        <form action="{{ route('event.store', ['id' => $user_id]) }}" method="POST">
 
             @csrf
             @method('POST')

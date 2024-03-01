@@ -20,10 +20,8 @@ Route::get('pages/event', [EventController::class, 'index'])
     ->name('event.index');
 
 // ROTTA PER IL METODO CREATE/STORE
-Route::get('/events/create', [EventController::class, 'create'])
-    ->name('event.create');
-Route::post('/events/create', [EventController::class, 'store'])
-    ->name('event.store');
+Route::get('/events/create/{id}', [EventController::class, 'create'])->name('event.create');
+Route::post('/events/store/{id}', [EventController::class, 'store'])->name('event.store');
 
 Route::delete('/events/{id}', [EventController::class, 'destroy'])
     ->name('event.destroy');
