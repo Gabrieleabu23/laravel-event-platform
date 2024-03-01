@@ -25,9 +25,16 @@ Route::get('/events/create' , [EventController :: class, 'create'])
 Route::post('/events/create' , [EventController :: class, 'store'])  
     -> name('event.store');
 
+Route::delete('/events/{id}', [EventController::class, 'destroy'])
+    ->name('event.destroy');
+
+
 Route::get('/pages/event/edit/{id}', [EventController::class, 'edit'])->name('pages.edit');
 Route::put('/pages/event/{id}', [EventController::class, 'update'])
     ->name('pages.update');
+
+
+
 
 Route::get('/pages/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/', function () {

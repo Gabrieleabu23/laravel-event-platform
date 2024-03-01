@@ -58,12 +58,24 @@ class EventController extends Controller
         $event -> description = $data['description'];
         $event -> event_date = $data['event_date'];
         $event -> save();
+        
         $event -> tags() -> attach($data['tag_id']);
 
 
         
 
         return redirect() -> route('event.index');
+    }
+
+    public function destroy($id)
+    {
+        $event = Event:: find($id);
+
+        $event -> tags() -> detach();
+
+        $event->delete();
+
+        return redirect()->route('event.index');
     }
 }
 
