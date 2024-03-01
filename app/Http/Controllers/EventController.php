@@ -76,16 +76,7 @@ class EventController extends Controller
         return redirect()->route('event.index');
     }
 
-    public function destroy($id)
-    {
-        $event = Event:: find($id);
 
-        $event -> tags() -> detach();
-
-        $event->delete();
-
-        return redirect()->route('event.index');
-    }
 }
 
 
