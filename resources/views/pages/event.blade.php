@@ -18,6 +18,15 @@
         @endforeach
     </li>
     <h2><a href="{{route('pages.edit',$event->id)}}">EDIT</a></h2>
+    <form class="ms-3 d-block" action="{{ route('event.destroy', $event->id) }}" method="POST"
+        onsubmit="return confirm('Confermare?');">
+
+        @csrf
+        @method('DELETE')
+
+        <input type="submit" value="DELETE">
+    </form>
+    
         @endforeach
     </ul>
 

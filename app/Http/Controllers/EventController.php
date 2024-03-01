@@ -22,8 +22,9 @@ class EventController extends Controller
     }
     public function edit($id){
         $event= Event :: find($id);
+        $tags= Tag :: all();
         
-        return view('pages.edit', compact('event'));
+        return view('pages.edit', compact('event','tags'));
     }
     public function update(Request $request, $id)
     {
@@ -35,7 +36,7 @@ class EventController extends Controller
         $event -> event_date=$data['event_date'];
 
         $event -> save();
-
+        $event -> tags() -> sync($data['tag_id']);
         return redirect() -> route('pages.edit', $event -> id);
     }
 
@@ -64,6 +65,15 @@ class EventController extends Controller
         
 
         return redirect() -> route('event.index');
+    }
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+
+        $event->tags()->detach();
+        $event->delete();
+
+        return redirect()->route('event.index');
     }
 }
 

@@ -20,15 +20,16 @@ Route::get('pages/event', [EventController::class, 'index'])
     ->name('event.index');
 
 // ROTTA PER IL METODO CREATE/STORE
-Route::get('/events/create' , [EventController :: class, 'create'])  
-    -> name('event.create');
-Route::post('/events/create' , [EventController :: class, 'store'])  
-    -> name('event.store');
+Route::get('/events/create', [EventController::class, 'create'])
+    ->name('event.create');
+Route::post('/events/create', [EventController::class, 'store'])
+    ->name('event.store');
 
 Route::get('/pages/event/edit/{id}', [EventController::class, 'edit'])->name('pages.edit');
 Route::put('/pages/event/{id}', [EventController::class, 'update'])
     ->name('pages.update');
-
+Route::delete('/{id}', [EventController::class, 'destroy'])
+    ->name('event.destroy');
 Route::get('/pages/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/', function () {
     return view('welcome');
