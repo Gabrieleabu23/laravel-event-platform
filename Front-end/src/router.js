@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import login from './pages/login.vue';
-import Home from './App.vue';
+import ApiContent from './components/ApiContent.vue';
+import tags from "./pages/tags.vue";
+import show from "./pages/show.vue";
+import about from "./pages/about.vue";
 
 
 
@@ -11,12 +14,27 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: ApiContent
         },
         {
             path: '/login',
             name: 'login',
             component: login
+        },
+        {
+            path: '/tags',
+            name: 'tags',
+            component: tags
+        },
+        {
+            path: '/show',
+            name: 'show',
+            component: show
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: about
         },
 
        

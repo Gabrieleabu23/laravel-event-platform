@@ -14,15 +14,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div
-                class="collapse navbar-collapse "
+                class="collapse navbar-collapse flex-grow-0"
                 id="navbarNavDropdown"
             >
-                
+                boh
             </div>
         </div>
     </nav>
 
-    <h1>I NOSTRI EVENTI:</h1>
+    <h1>I NOSTRI USERS:</h1>
     <!-- <form v-if="createFormActive" @submit.prevent="submitNewTechnology">
         <label for="name">Technology name: </label>
         <input
@@ -35,13 +35,16 @@
         <br />
     </form> -->
     <ul>
-        <li  v-for="event in events" :key="event.id">
-            <div class="d-flex align-items-center gap-3">
-                <span>{{event.id}}</span>
-                <router-link  to="/show" @click="riempiVet(event.id)"><h4 class="mb-2">{{ event.name }}</h4></router-link>
-                
+        <li v-for="user in users" :key="user.id">
+            <h4 v-if="haunEvento(user.id)" >{{ user.name }}</h4>
+            
+            <div v-for="event in events" :key="event.id">
+                <p v-if="event.user_id == user.id && event.description != null">
+                    {{ event.description }}
+                    
+                    
+                </p>
             </div>
-
         </li>
     </ul>
 </template>
@@ -64,18 +67,15 @@ export default {
     name: "ApiContent",
     data() {
         return {
+            boh:'',
             events: [],
             store,
             users: [],
         };
     },
     methods:{
-        riempiVet(id){
-            this.events.forEach(element => {
-                if(element.id == id){
-                    store.vettore=element;
-                }
-            });
+        haunEvento(id_utente){
+            return this.events.some((event) => event.user_id === id_utente && event.description !== null);
         }
     },
     mounted() {

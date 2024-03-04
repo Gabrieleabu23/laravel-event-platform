@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
@@ -21,8 +22,9 @@ use App\Http\Controllers\Api\ApiController;
 
 Route::group(['prefix' => '/v1'], function(){
     
-    Route::get('login', [ApiController::class, 'VerifyCredit']);
+    // Route::get('login', [ApiController::class, 'VerifyCredit']);
     Route :: get('event', [ ApiController :: class, 'getEvents']);
+    Route :: get('tags', [ TagController :: class, 'index']);
     // Route :: get('technologies', [ApiController :: class, 'getTechnologies']);
 
     // Route :: post('technologies', [ApiController :: class, 'createTechnologies']);

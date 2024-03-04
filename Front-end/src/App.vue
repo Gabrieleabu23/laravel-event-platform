@@ -17,10 +17,16 @@ export default {
 
 <template>
     
-        <ApiContent v-if="store.view ===0"/>
-        
+    <div class="container w-75">
+        <div class="d-flex justify-content-between">
+            <router-link  to="/">Home</router-link>
+            <router-link  to="/tags">Tags</router-link>
+            <router-link  to="/about">About</router-link>
+        </div>
+    </div>
     
-    <router-view v-else></router-view>
+    <router-view></router-view>
+    
 </template>
 
 <style scoped>
