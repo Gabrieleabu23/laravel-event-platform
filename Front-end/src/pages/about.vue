@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
         <div class="container-fluid">
-            <router-link class="navbar-brand" to="/">Events</router-link>
+            <router-link class="navbar-brand" to="/about">About</router-link>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -17,7 +17,7 @@
                 class="collapse navbar-collapse flex-grow-0"
                 id="navbarNavDropdown"
             >
-                boh
+                
             </div>
         </div>
     </nav>
