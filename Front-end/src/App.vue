@@ -1,9 +1,26 @@
-<script setup>
+<script>
 import ApiContent from "./components/ApiContent.vue";
+import { store } from './store'
+export default {
+    components: {
+        ApiContent,
+    
+    },
+    data() {
+        return {
+            store
+        };
+    }
+
+};
 </script>
 
 <template>
-    <ApiContent />
+    
+        <ApiContent v-if="store.view ===0"/>
+        
+    
+    <router-view v-else></router-view>
 </template>
 
 <style scoped>

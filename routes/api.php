@@ -21,11 +21,12 @@ use App\Http\Controllers\Api\ApiController;
 
 Route::group(['prefix' => '/v1'], function(){
     
+    Route::get('login', [ApiController::class, 'VerifyCredit']);
     Route :: get('event', [ ApiController :: class, 'getEvents']);
-    
     // Route :: get('technologies', [ApiController :: class, 'getTechnologies']);
 
     // Route :: post('technologies', [ApiController :: class, 'createTechnologies']);
 
 
 });
+;
