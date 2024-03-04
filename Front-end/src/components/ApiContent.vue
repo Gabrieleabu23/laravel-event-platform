@@ -74,6 +74,7 @@ export default {
             this.events.forEach(element => {
                 if(element.id == id){
                     store.vettore=element;
+                    store.view=1;
                 }
             });
         }

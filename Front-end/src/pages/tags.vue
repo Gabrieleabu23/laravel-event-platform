@@ -13,6 +13,7 @@ export default {
             this.tags.forEach(element => {
                 if(element.id == id){
                     store.vettore=element;
+                    store.view=0;
                     console.log(element);
                 }
             });

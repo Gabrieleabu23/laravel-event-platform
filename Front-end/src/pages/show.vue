@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <div v-if="store.description != null">
+    <div v-if="store.view">
         <h4>{{ store.vettore.name }}</h4>
         <h4>{{ store.vettore.description }}</h4>
         <h4>{{ store.vettore.event_date }}</h4>
